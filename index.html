@@ -6,11 +6,17 @@
     <title>Infografik Komprehensif: Calon SPM Orang Asli Pahang 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        html {
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/leaves.png');
+            background-attachment: fixed;
+            background-repeat: repeat;
+        }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: rgba(248, 249, 250, 0.92); /* Reduced transparency */
             color: #343a40;
             margin: 0;
             padding: 20px;
@@ -25,7 +31,7 @@
         }
         header h1 {
             color: #212529;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             margin-bottom: 10px;
         }
@@ -40,17 +46,22 @@
         .summary-dashboard {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
             margin-bottom: 50px;
         }
         .summary-card {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.07);
             border: 1px solid #e9ecef;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
         }
         .summary-card .card-title {
             font-size: 1.1rem;
@@ -61,11 +72,12 @@
             align-items: center;
         }
         .summary-card .card-title i {
-            margin-right: 10px;
+            margin-right: 12px;
             color: #007bff;
+            font-size: 1.2em;
         }
         .summary-card .main-stat {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
             color: #212529;
         }
@@ -141,18 +153,18 @@
         /* PPD Graph Section */
         .ppd-graph-section, .ppd-breakdown-section {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.07);
             border: 1px solid #e9ecef;
             margin-top: 50px;
         }
         .section-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         .section-header h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: #212529;
             margin: 0;
@@ -165,7 +177,7 @@
         .bar-chart-item {
             margin-bottom: 15px;
             display: grid;
-            grid-template-columns: 180px 1fr;
+            grid-template-columns: 200px 1fr;
             align-items: center;
             gap: 15px;
         }
@@ -173,11 +185,12 @@
             font-weight: 600;
             text-align: right;
             color: #495057;
+            font-size: 1.05em;
         }
         .bar-container {
             background-color: #e9ecef;
             border-radius: 6px;
-            height: 30px;
+            height: 35px;
             width: 100%;
         }
         .bar {
@@ -186,57 +199,59 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding-right: 10px;
+            padding-right: 12px;
             color: white;
             font-weight: 700;
-            font-size: 0.9em;
+            font-size: 0.95em;
             white-space: nowrap;
             transition: width 0.8s ease-in-out;
+            box-shadow: inset 0 -2px 4px rgba(0,0,0,0.1);
         }
 
-        /* PPD School Breakdown */
-        .ppd-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 25px;
-        }
-        .ppd-card {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .ppd-header {
-            padding: 20px;
-            border-bottom: 1px solid #f1f3f5;
+        /* Accordion Styles for School Breakdown */
+        .accordion-button {
+            background-color: #f8f9fa;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.4s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-top: 1px solid #dee2e6;
         }
-        .ppd-header h3 {
-            margin: 0;
-            color: #007bff;
-            font-size: 1.4em;
+        .accordion-item:first-child .accordion-button {
+            border-top: none;
         }
-        .ppd-count {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #212529;
+        .accordion-button:hover, .accordion-button.active {
             background-color: #e9ecef;
-            padding: 5px 15px;
-            border-radius: 8px;
         }
-        .school-list-container {
-            padding: 0 20px 20px 20px;
-            flex-grow: 1;
+        .accordion-button .ppd-name {
+            color: #007bff;
+        }
+        .accordion-button i {
+            transition: transform 0.3s ease;
+        }
+        .accordion-button.active i {
+            transform: rotate(180deg);
+        }
+        .accordion-panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
         }
         .school-list {
             list-style: none;
             padding: 0;
-            margin: 15px 0 0 0;
+            margin: 0;
         }
         .school-list li {
             display: flex;
@@ -448,19 +463,15 @@
                 </ul>
             </div>
 
-            <!-- PPD School Breakdown Section -->
+            <!-- PPD School Breakdown Section (Accordion) -->
             <div class="ppd-breakdown-section">
                 <div class="section-header">
                     <h2>Pecahan Calon Mengikut Sekolah dan Daerah</h2>
                 </div>
-                <div class="ppd-grid">
-                    <!-- PPD Rompin -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Rompin</h3>
-                            <div class="ppd-count">120</div>
-                        </div>
-                        <div class="school-list-container">
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Rompin</span><span class="ppd-total">120 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                 <li><span class="school-name">SMK MUADZAM JAYA</span><span class="school-count">40</span></li>
                                 <li><span class="school-name">SMK PONTIAN JAYA</span><span class="school-count">12</span></li>
@@ -476,15 +487,10 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Lipis -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Lipis</h3>
-                            <div class="ppd-count">114</div>
-                        </div>
-                        <div class="school-list-container">
-                            <ul class="school-list">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Lipis</span><span class="ppd-total">114 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
+                             <ul class="school-list">
                                 <li><span class="school-name">SMK RPS BETAU</span><span class="school-count">50</span></li>
                                 <li><span class="school-name">SMK (FELDA) SG KOYAN</span><span class="school-count">27</span></li>
                                 <li><span class="school-name">SMK KUALA LANAR</span><span class="school-count">18</span></li>
@@ -494,14 +500,9 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Temerloh -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Temerloh</h3>
-                            <div class="ppd-count">101</div>
-                        </div>
-                        <div class="school-list-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Temerloh</span><span class="ppd-total">101 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                 <li><span class="school-name">SMK KUALA KRAU</span><span class="school-count">61</span></li>
                                 <li><span class="school-name">SMK KERDAU</span><span class="school-count">25</span></li>
@@ -513,14 +514,9 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Cameron Highlands -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Cameron Highlands</h3>
-                            <div class="ppd-count">89</div>
-                        </div>
-                        <div class="school-list-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Cameron Highlands</span><span class="ppd-total">89 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                 <li><span class="school-name">SMK SULTAN AHMAD SHAH</span><span class="school-count">40</span></li>
                                 <li><span class="school-name">SMK RINGLET</span><span class="school-count">36</span></li>
@@ -529,14 +525,9 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Bera -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Bera</h3>
-                            <div class="ppd-count">61</div>
-                        </div>
-                        <div class="school-list-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Bera</span><span class="ppd-total">61 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                 <li><span class="school-name">SMK TEMBANGAU</span><span class="school-count">35</span></li>
                                 <li><span class="school-name">SMK MENGKARAK</span><span class="school-count">8</span></li>
@@ -545,14 +536,9 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Pekan -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Pekan</h3>
-                            <div class="ppd-count">51</div>
-                        </div>
-                        <div class="school-list-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Pekan</span><span class="ppd-total">51 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                 <li><span class="school-name">SMK PALOH HINAI</span><span class="school-count">15</span></li>
                                 <li><span class="school-name">SMK LEPAR</span><span class="school-count">13</span></li>
@@ -562,14 +548,9 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Kuantan -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Kuantan</h3>
-                            <div class="ppd-count">29</div>
-                        </div>
-                        <div class="school-list-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Kuantan</span><span class="ppd-total">29 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                 <li><span class="school-name">SMK GAMBANG</span><span class="school-count">7</span></li>
                                 <li><span class="school-name">SMK TANAH PUTEH</span><span class="school-count">5</span></li>
@@ -579,14 +560,9 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Bentong -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Bentong</h3>
-                            <div class="ppd-count">21</div>
-                        </div>
-                        <div class="school-list-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Bentong</span><span class="ppd-total">21 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                 <li><span class="school-name">SMK KARAK</span><span class="school-count">13</span></li>
                                 <li><span class="school-name">SMK KHAI MUN</span><span class="school-count">5</span></li>
@@ -594,14 +570,9 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Raub -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Raub</h3>
-                            <div class="ppd-count">20</div>
-                        </div>
-                        <div class="school-list-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Raub</span><span class="ppd-total">20 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                 <li><span class="school-name">SMK TENGKU KUDIN</span><span class="school-count">13</span></li>
                                 <li><span class="school-name">SMK MAHMUD</span><span class="school-count">4</span></li>
@@ -609,14 +580,9 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Maran -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Maran</h3>
-                            <div class="ppd-count">12</div>
-                        </div>
-                        <div class="school-list-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Maran</span><span class="ppd-total">12 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                <li><span class="school-name">SMK MARAN</span><span class="school-count">6</span></li>
                                <li><span class="school-name">SMK SRI JAYA</span><span class="school-count">3</span></li>
@@ -624,14 +590,9 @@
                             </ul>
                         </div>
                     </div>
-    
-                    <!-- PPD Jerantut -->
-                    <div class="ppd-card">
-                        <div class="ppd-header">
-                            <h3>PPD Jerantut</h3>
-                            <div class="ppd-count">8</div>
-                        </div>
-                        <div class="school-list-container">
+                    <div class="accordion-item">
+                        <button class="accordion-button"><span class="ppd-name">PPD Jerantut</span><span class="ppd-total">8 Calon <i class="fas fa-chevron-down"></i></span></button>
+                        <div class="accordion-panel">
                             <ul class="school-list">
                                 <li><span class="school-name">SMK INDERAPURA</span><span class="school-count">2</span></li>
                                 <li><span class="school-name">SMK JERANTUT</span><span class="school-count">2</span></li>
@@ -650,6 +611,33 @@
             <p><em>Nota: Data jantina telah disemak dan dibetulkan berdasarkan nama dan nombor kad pengenalan untuk memastikan ketepatan. Jumlah calon di peringkat sekolah adalah berdasarkan analisis data mentah dan mungkin terdapat sedikit perbezaan dengan jumlah keseluruhan PPD disebabkan oleh proses pembersihan data.</em></p>
         </footer>
     </div>
+
+    <script>
+        const accordionButtons = document.querySelectorAll(".accordion-button");
+
+        accordionButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const isActive = button.classList.contains("active");
+
+                // Close all other accordions
+                accordionButtons.forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.classList.remove("active");
+                        otherButton.nextElementSibling.style.maxHeight = null;
+                    }
+                });
+
+                // Toggle the clicked accordion
+                button.classList.toggle("active");
+                const panel = button.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        });
+    </script>
 
 </body>
 </html>
