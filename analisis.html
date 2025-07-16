@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografik Komprehensif: Calon SPM Orang Asli Pahang 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1600px;
+            margin: auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            color: #212529;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        header p {
+            color: #6c757d;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Summary Dashboard */
+        .summary-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        .summary-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+        }
+        .summary-card .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .summary-card .card-title i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+        .summary-card .main-stat {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #212529;
+        }
+        .summary-card .stat-label {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        .gender-split {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .gender-split .gender-stat {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        .gender-split i {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .fa-mars { color: #17a2b8; }
+        .fa-venus { color: #e83e8c; }
+
+        /* Bar charts for stats */
+        .stat-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .stat-list li { margin-bottom: 15px; }
+        .stat-list .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        .stat-list .stat-name { color: #495057; }
+        .stat-list .stat-value { font-weight: 600; color: #343a40; }
+        .progress-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-bar div {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #007bff;
+        }
+        .progress-bar .bg-success { background-color: #28a745; }
+        .progress-bar .bg-info { background-color: #17a2b8; }
+        .progress-bar .bg-warning { background-color: #ffc107; }
+
+        /* Top Schools List */
+        .top-school-list { list-style-type: none; padding: 0; margin-top: 10px; flex-grow: 1; }
+        .top-school-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f3f5;
+            font-size: 0.9rem;
+        }
+        .top-school-list li:last-child { border-bottom: none; }
+        .top-school-list .school-name {
+            flex-grow: 1;
+        }
+        .top-school-list .school-count {
+            font-weight: 600;
+            background-color: #e9ecef;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+        
+        /* PPD Graph Section */
+        .ppd-graph-section, .ppd-breakdown-section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            margin-top: 50px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #212529;
+            margin: 0;
+        }
+        .bar-chart {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .bar-chart-item {
+            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            align-items: center;
+            gap: 15px;
+        }
+        .bar-chart-label {
+            font-weight: 600;
+            text-align: right;
+            color: #495057;
+        }
+        .bar-container {
+            background-color: #e9ecef;
+            border-radius: 6px;
+            height: 30px;
+            width: 100%;
+        }
+        .bar {
+            height: 100%;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9em;
+            white-space: nowrap;
+            transition: width 0.8s ease-in-out;
+        }
+
+        /* PPD School Breakdown */
+        .ppd-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 25px;
+        }
+        .ppd-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .ppd-header {
+            padding: 20px;
+            border-bottom: 1px solid #f1f3f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ppd-header h3 {
+            margin: 0;
+            color: #007bff;
+            font-size: 1.4em;
+        }
+        .ppd-count {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #212529;
+            background-color: #e9ecef;
+            padding: 5px 15px;
+            border-radius: 8px;
+        }
+        .school-list-container {
+            padding: 0 20px 20px 20px;
+            flex-grow: 1;
+        }
+        .school-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+        }
+        .school-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 5px;
+            border-bottom: 1px solid #f1f3f5;
+            font-size: 0.95em;
+        }
+        .school-list li:last-child { border-bottom: none; }
+        .school-list .school-name {
+            flex-grow: 1;
+            padding-right: 15px;
+            color: #495057;
+        }
+        .school-list .school-count {
+            font-weight: bold;
+            background-color: #f8f9fa;
+            color: #495057;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            min-width: 35px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        footer p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Infografik Komprehensif: Calon SPM Orang Asli Pahang 2025</h1>
+            <p>Analisis demografi, geografi, dan institusi bagi 576 calon di seluruh negeri Pahang.</p>
+        </header>
+
+        <main>
+            <!-- Overall Summary Dashboard -->
+            <div class="summary-dashboard">
+                <div class="summary-card">
+                    <h3 class="card-title"><i class="fas fa-users"></i>Jumlah Keseluruhan</h3>
+                    <div class="main-stat">576</div>
+                    <div class="stat-label">Calon Berdaftar</div>
+                </div>
+                <div class="summary-card">
+                    <h3 class="card-title"><i class="fas fa-venus-mars"></i>Pecahan Jantina</h3>
+                    <div class="gender-split">
+                        <div>
+                            <i class="fas fa-mars"></i>
+                            <div class="gender-stat">301</div>
+                            <div class="stat-label">Lelaki (52.3%)</div>
+                        </div>
+                        <div>
+                            <i class="fas fa-venus"></i>
+                            <div class="gender-stat">275</div>
+                            <div class="stat-label">Perempuan (47.7%)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <h3 class="card-title"><i class="fas fa-flag"></i>Pecahan Suku Kaum</h3>
+                    <ul class="stat-list">
+                        <li>
+                            <div class="stat-item"><span class="stat-name">Orang Asli (Semenanjung)</span><span class="stat-value">441 (76.6%)</span></div>
+                            <div class="progress-bar"><div style="width: 76.6%;"></div></div>
+                        </li>
+                        <li>
+                            <div class="stat-item"><span class="stat-name">Semai</span><span class="stat-value">81 (14.1%)</span></div>
+                            <div class="progress-bar"><div class="bg-success" style="width: 14.1%;"></div></div>
+                        </li>
+                        <li>
+                            <div class="stat-item"><span class="stat-name">Semalai</span><span class="stat-value">27 (4.7%)</span></div>
+                            <div class="progress-bar"><div class="bg-info" style="width: 4.7%;"></div></div>
+                        </li>
+                         <li>
+                            <div class="stat-item"><span class="stat-name">Temiar</span><span class="stat-value">27 (4.7%)</span></div>
+                            <div class="progress-bar"><div class="bg-warning" style="width: 4.7%;"></div></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h3 class="card-title"><i class="fas fa-hands-praying"></i>Pecahan Agama</h3>
+                     <ul class="stat-list">
+                        <li>
+                            <div class="stat-item"><span class="stat-name">Tiada Agama/Animisme</span><span class="stat-value">460 (79.9%)</span></div>
+                            <div class="progress-bar"><div style="width: 79.9%;"></div></div>
+                        </li>
+                        <li>
+                            <div class="stat-item"><span class="stat-name">Islam</span><span class="stat-value">77 (13.4%)</span></div>
+                            <div class="progress-bar"><div class="bg-success" style="width: 13.4%;"></div></div>
+                        </li>
+                        <li>
+                            <div class="stat-item"><span class="stat-name">Kristian</span><span class="stat-value">28 (4.9%)</span></div>
+                            <div class="progress-bar"><div class="bg-info" style="width: 4.9%;"></div></div>
+                        </li>
+                         <li>
+                            <div class="stat-item"><span class="stat-name">Lain-lain</span><span class="stat-value">13 (2.2%)</span></div>
+                            <div class="progress-bar"><div class="bg-warning" style="width: 2.2%;"></div></div>
+                        </li>
+                    </ul>
+                </div>
+                 <div class="summary-card">
+                    <h3 class="card-title"><i class="fas fa-school"></i>5 Sekolah Tumpuan Utama</h3>
+                    <ol class="top-school-list">
+                        <li><span class="school-name">SMK KUALA KRAU, Temerloh</span><span class="school-count">61</span></li>
+                        <li><span class="school-name">SMK RPS BETAU, Lipis</span><span class="school-count">50</span></li>
+                        <li><span class="school-name">SMK SULTAN AHMAD SHAH, C. Highlands</span><span class="school-count">40</span></li>
+                        <li><span class="school-name">SMK MUADZAM JAYA, Rompin</span><span class="school-count">40</span></li>
+                        <li><span class="school-name">SMK RINGLET, C. Highlands</span><span class="school-count">36</span></li>
+                    </ol>
+                </div>
+                <div class="summary-card">
+                    <h3 class="card-title"><i class="fas fa-trophy"></i>Daerah Tumpuan (3 Sekolah Teratas)</h3>
+                    <div class="main-stat">95</div>
+                    <div class="stat-label">Calon dari PPD Lipis</div>
+                    <p style="font-size: 0.85em; color: #6c757d; margin-top: 10px;">Gabungan calon dari SMK RPS Betau (50), SMK (F) Sg Koyan (27), dan SMK Kuala Lanar (18).</p>
+                </div>
+            </div>
+
+            <!-- PPD Graph Section -->
+            <div class="ppd-graph-section">
+                <div class="section-header">
+                    <h2>Perbandingan Calon Mengikut Pejabat Pendidikan Daerah (PPD)</h2>
+                </div>
+                <ul class="bar-chart">
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Rompin</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 100%; background-color: #0d6efd;">120</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Lipis</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 95%; background-color: #198754;">114</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Temerloh</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 84.2%; background-color: #dc3545;">101</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Cameron Highlands</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 74.2%; background-color: #ffc107; color: #343a40;">89</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Bera</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 50.8%; background-color: #0dcaf0; color: #343a40;">61</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Pekan</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 42.5%; background-color: #fd7e14;">51</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Kuantan</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 24.2%; background-color: #6f42c1;">29</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Bentong</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 17.5%; background-color: #d63384;">21</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Raub</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 16.7%; background-color: #20c997; color: #343a40;">20</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Maran</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 10%; background-color: #6c757d;">12</div>
+                        </div>
+                    </li>
+                    <li class="bar-chart-item">
+                        <div class="bar-chart-label">PPD Jerantut</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 6.7%; background-color: #adb5bd;">8</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- PPD School Breakdown Section -->
+            <div class="ppd-breakdown-section">
+                <div class="section-header">
+                    <h2>Pecahan Calon Mengikut Sekolah dan Daerah</h2>
+                </div>
+                <div class="ppd-grid">
+                    <!-- PPD Rompin -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Rompin</h3>
+                            <div class="ppd-count">120</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK MUADZAM JAYA</span><span class="school-count">40</span></li>
+                                <li><span class="school-name">SMK PONTIAN JAYA</span><span class="school-count">12</span></li>
+                                <li><span class="school-name">SMK KERATONG</span><span class="school-count">11</span></li>
+                                <li><span class="school-name">SMK ROMPIN</span><span class="school-count">10</span></li>
+                                <li><span class="school-name">SMK SUNGAI PUTERI</span><span class="school-count">9</span></li>
+                                <li><span class="school-name">SMK PERANTAU DAMAI</span><span class="school-count">8</span></li>
+                                <li><span class="school-name">SMK SELENDANG</span><span class="school-count">7</span></li>
+                                <li><span class="school-name">SMK TANJUNG GEMOK</span><span class="school-count">5</span></li>
+                                <li><span class="school-name">SMK SERI ROMPIN</span><span class="school-count">4</span></li>
+                                <li><span class="school-name">SMK ROMPIN PERMAI</span><span class="school-count">3</span></li>
+                                <li><span class="school-name">SEKOLAH MENENGAH AGAMA ROMPIN</span><span class="school-count">1</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Lipis -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Lipis</h3>
+                            <div class="ppd-count">114</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK RPS BETAU</span><span class="school-count">50</span></li>
+                                <li><span class="school-name">SMK (FELDA) SG KOYAN</span><span class="school-count">27</span></li>
+                                <li><span class="school-name">SMK KUALA LANAR</span><span class="school-count">18</span></li>
+                                <li><span class="school-name">SMK PADANG TENGKU</span><span class="school-count">17</span></li>
+                                <li><span class="school-name">SMK KERAMBIT</span><span class="school-count">1</span></li>
+                                <li><span class="school-name">SEKOLAH MENENGAH KEBANGSAAN CLIFFORD</span><span class="school-count">1</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Temerloh -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Temerloh</h3>
+                            <div class="ppd-count">101</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK KUALA KRAU</span><span class="school-count">61</span></li>
+                                <li><span class="school-name">SMK KERDAU</span><span class="school-count">25</span></li>
+                                <li><span class="school-name">SMK LANCHANG</span><span class="school-count">5</span></li>
+                                <li><span class="school-name">SMK SEBERANG TEMERLOH</span><span class="school-count">4</span></li>
+                                <li><span class="school-name">SMK TELUK SENTANG</span><span class="school-count">4</span></li>
+                                <li><span class="school-name">SMK BUKIT DAMAR</span><span class="school-count">2</span></li>
+                                <li><span class="school-name">SMK TEMERLOH</span><span class="school-count">2</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Cameron Highlands -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Cameron Highlands</h3>
+                            <div class="ppd-count">89</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK SULTAN AHMAD SHAH</span><span class="school-count">40</span></li>
+                                <li><span class="school-name">SMK RINGLET</span><span class="school-count">36</span></li>
+                                <li><span class="school-name">SMK TANAH RATA</span><span class="school-count">7</span></li>
+                                <li><span class="school-name">SMK KAMPUNG RAJA</span><span class="school-count">6</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Bera -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Bera</h3>
+                            <div class="ppd-count">61</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK TEMBANGAU</span><span class="school-count">35</span></li>
+                                <li><span class="school-name">SMK MENGKARAK</span><span class="school-count">8</span></li>
+                                <li><span class="school-name">SMK BUKIT MENDI</span><span class="school-count">5</span></li>
+                                <li><span class="school-name">SMK BANDAR KERAYONG</span><span class="school-count">4</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Pekan -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Pekan</h3>
+                            <div class="ppd-count">51</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK PALOH HINAI</span><span class="school-count">15</span></li>
+                                <li><span class="school-name">SMK LEPAR</span><span class="school-count">13</span></li>
+                                <li><span class="school-name">SMK NENASI</span><span class="school-count">12</span></li>
+                                <li><span class="school-name">SMK CHINI TIMUR</span><span class="school-count">4</span></li>
+                                <li><span class="school-name">SMK SULTAN AHMAD</span><span class="school-count">1</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Kuantan -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Kuantan</h3>
+                            <div class="ppd-count">29</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK GAMBANG</span><span class="school-count">7</span></li>
+                                <li><span class="school-name">SMK TANAH PUTEH</span><span class="school-count">5</span></li>
+                                <li><span class="school-name">SMK MAT KILAU</span><span class="school-count">4</span></li>
+                                <li><span class="school-name">SMK SUNGAI LEMBING</span><span class="school-count">4</span></li>
+                                <li><span class="school-name">Others (7 Schools)</span><span class="school-count">9</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Bentong -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Bentong</h3>
+                            <div class="ppd-count">21</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK KARAK</span><span class="school-count">13</span></li>
+                                <li><span class="school-name">SMK KHAI MUN</span><span class="school-count">5</span></li>
+                                <li><span class="school-name">Others (3 Schools)</span><span class="school-count">3</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Raub -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Raub</h3>
+                            <div class="ppd-count">20</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK TENGKU KUDIN</span><span class="school-count">13</span></li>
+                                <li><span class="school-name">SMK MAHMUD</span><span class="school-count">4</span></li>
+                                <li><span class="school-name">SM SAINS TENGKU ABDULLAH</span><span class="school-count">3</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Maran -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Maran</h3>
+                            <div class="ppd-count">12</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                               <li><span class="school-name">SMK MARAN</span><span class="school-count">6</span></li>
+                               <li><span class="school-name">SMK SRI JAYA</span><span class="school-count">3</span></li>
+                               <li><span class="school-name">SMK TENGKU AMPUAN AFZAN</span><span class="school-count">3</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- PPD Jerantut -->
+                    <div class="ppd-card">
+                        <div class="ppd-header">
+                            <h3>PPD Jerantut</h3>
+                            <div class="ppd-count">8</div>
+                        </div>
+                        <div class="school-list-container">
+                            <ul class="school-list">
+                                <li><span class="school-name">SMK INDERAPURA</span><span class="school-count">2</span></li>
+                                <li><span class="school-name">SMK JERANTUT</span><span class="school-count">2</span></li>
+                                <li><span class="school-name">SMK DAMAK</span><span class="school-count">2</span></li>
+                                <li><span class="school-name">SMK PADANG PIOL</span><span class="school-count">2</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p><strong>Dibangunkan oleh UNIT TMK, SEKTOR PEMBELAJARAN JABATAN PENDIDIKAN NEGERI PAHANG 2025</strong></p>
+            <p>Data berdasarkan Laporan Analisis Calon SPM Orang Asli 2025 di Pahang.</p>
+            <p><em>Nota: Data jantina telah disemak dan dibetulkan berdasarkan nama dan nombor kad pengenalan untuk memastikan ketepatan. Jumlah calon di peringkat sekolah adalah berdasarkan analisis data mentah dan mungkin terdapat sedikit perbezaan dengan jumlah keseluruhan PPD disebabkan oleh proses pembersihan data.</em></p>
+        </footer>
+    </div>
+
+</body>
+</html>
